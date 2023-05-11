@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Our Funky HTML Page</title>
+    <style>
+      html {
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+
+      body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+      }
+
+      ol, ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      td {
+        width: 50%;
+        vertical-align: top;
+      }
+      
+      .expandable {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 250ms ease;
+
+        &[aria-hidden="false"],
+        .no-js & {
+          grid-template-rows: 1fr;
+        }
+
+        &-wrap {
+          overflow: hidden;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@textea/json-viewer"></script>
+  </head>
+  <body>   
+    <div>
+      <textarea id="payload" rows="1" style="width: 100%"></textarea>
+    </div>
+    
+    <table cellspacing="0" cellpadding="0" style="width: 100%">
+      <tr>
+        <td><div id="json-viewer"></div></td>
+        <td><div id="event-viewer"></div></td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      var payload = document.getElementById("payload");
+      var output = document.getElementById("output");
+
+      function parseEscapedJSONString(input) {
+        // function that parses escaped JSON string into a valid JSON object
+        // example input: "{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/contexts\\/jsonschema\\/1-0-1\",\"data\":[{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/client_session\\/jsonschema\\/1-0-2\",\"data\":{\"sessionIndex\":3,\"storageMechanism\":\"LOCAL_STORAGE\",\"firstEventTimestamp\":\"2023-05-11T11:15:34.141Z\",\"firstEventId\":\"f047ac3c-acc0-4f23-aa1d-0387ed5c4656\",\"sessionId\":\"90bb091d-3f73-4c63-9053-d7e0aa75e87f\",\"eventIndex\":7,\"previousSessionId\":\"737b3088-310d-4774-8476-00ef588b5ba2\",\"userId\":\"8a063170-6b20-4b2d-8cd5-8313f84737aa\"}},{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/application\\/jsonschema\\/1-0-0\",\"data\":{\"build\":\"828\",\"version\":\"1.0.3\"}},{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/mobile_context\\/jsonschema\\/1-0-2\",\"data\":{\"carrier\":\"O2.CZ\",\"totalStorage\":242050117632,\"systemAvailableMemory\":4125233152,\"osVersion\":\"12\",\"batteryState\":\"unplugged\",\"availableStorage\":209431031808,\"osType\":\"android\",\"androidIdfa\":\"26da704f-eec8-45cd-91c8-84aad71497a1\",\"deviceModel\":\"M2012K11AG\",\"deviceManufacturer\":\"Xiaomi\",\"networkType\":\"wifi\",\"physicalMemory\":7983042560,\"batteryLevel\":86}},{\"schema\":\"cz.kb\\/screen_context\\/jsonschema\\/1-0-0\",\"data\":{\"techName\":\"ERR_DOCBOX_DOC_LOAD_ERROR\"}},{\"schema\":\"cz.kb\\/application_context\\/jsonschema\\/1-0-0\",\"data\":{\"channel\":\"NDB\",\"platform\":\"Android\",\"environment\":\"STAGE\",\"language\":\"cs\",\"skin\":\"auto\"}},{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/screen\\/jsonschema\\/1-0-0\",\"data\":{\"name\":\"ERR_DOCBOX_DOC_LOAD_ERROR\",\"id\":\"f0ac07ff-a816-40c1-8aee-0a436b2074c3\"}},{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/application_lifecycle\\/jsonschema\\/1-0-0\",\"data\":{\"isVisible\":true}}]}"
+        return JSON.parse(input.replace(/\\(.)/mg, "$1"));
+      }
+
+      function readJSONPayload() {
+        var json = payload.value;
+        var obj = JSON.parse(json);
+        var event = {};
+
+        for (var i = 0; i < obj.json.data.length; i++) {
+          obj.json.data[i].co = parseEscapedJSONString(obj.json.data[i].co);
+          event = Object.assign(obj.json.data[i].co, event);
+          // for (var j = 0; j < obj.json.data[i].co.data.length; j++) {
+          //   var context = {};
+          //   switch (obj.json.data[i].co.data[j].schema) {
+          //   case "cz.kb/application_context/jsonschema/1-0-0":
+          //     context.applicationContext = obj.json.data[i].co.data[j].data
+          //     break;
+          //   case "cz.kb/screen_context/jsonschema/1-0-0":
+          //     context.screenContext = obj.json.data[i].co.data[j].data
+          //     break;
+          //   default:
+          //     context = obj.json.data[i].co.data[j].data;
+          //     break;
+          //   }
+          //   event = Object.assign(context, event);
+          // }
+          obj.json.data[i].ue_pr = parseEscapedJSONString(obj.json.data[i].ue_pr);
+          event = Object.assign(obj.json.data[i].ue_pr, event);
+          // for (var j = 0; j < obj.json.data[i].ue_pr.data.length; j++) {
+          //   event = Object.assign(obj.json.data[i].ue_pr.data[j].data, event);
+          // }
+        }
+        
+        //output.innerHTML = "<pre>" + JSON.stringify(obj, null, 2) + "</pre>";
+        
+        var jsonViewer = new JsonViewer({
+          value: obj,
+          rootName: "payload",
+          theme: 'light',
+          editable: false,
+          defaultInspectDepth: 15,
+        });
+        jsonViewer.render("#json-viewer");
+
+        var eventViewer = new JsonViewer({
+          value: event,
+          rootName: "event",
+          theme: 'light',
+          editable: false,
+          defaultInspectDepth: 15,
+        });
+        eventViewer.render("#event-viewer");
+       }
+
+      payload.onkeyup = function() {
+        readJSONPayload();
+      }
+    </script>
+  </body>
+</html>

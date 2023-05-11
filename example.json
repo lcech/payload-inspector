@@ -1,0 +1,64 @@
+
+{
+  "cookies": {},
+  "endpoint": "/mobile",
+  "geo_ip_data": {
+    "city_name": null,
+    "country_iso": "CZ",
+    "country_name": "Czechia",
+    "latitude": 50.0853,
+    "longitude": 14.411,
+    "postal_code": null
+  },
+  "headers": {
+    "Accept-Encoding": "gzip",
+    "Content-Length": "2523",
+    "Content-Type": "application/json; charset=utf-8",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "User-Agent": "snowplow/andr-4.1.1 android/12",
+    "X-B3-Sampled": "1",
+    "X-B3-Spanid": "f34577173847408e",
+    "X-B3-Traceid": "aeac2cb04c9e0346f34577173847408e",
+    "X-Envoy-Attempt-Count": "1",
+    "X-Envoy-Decorator-Operation": "meiro-events-app-producer.meiro-events.svc.cluster.local:80/mobile",
+    "X-Envoy-External-Address": "10.85.90.223",
+    "X-Envoy-Peer-Metadata": "ChQKDkFQUF9DT05UQUlORVJTEgIaAAoaCgpDTFVTVEVSX0lEEgwaCkt1YmVybmV0ZXMKGQoNSVNUSU9fVkVSU0lPThIIGgYxLjEzLjMKpAUKBkxBQkVMUxKZBSqWBQodCgNhcHASFhoUaXN0aW8taW5ncmVzc2dhdGV3YXkKEwoFY2hhcnQSChoIZ2F0ZXdheXMKFAoIaGVyaXRhZ2USCBoGVGlsbGVyCjYKKWluc3RhbGwub3BlcmF0b3IuaXN0aW8uaW8vb3duaW5nLXJlc291cmNlEgkaB3Vua25vd24KGQoFaXN0aW8SEBoOaW5ncmVzc2dhdGV3YXkKGQoMaXN0aW8uaW8vcmV2EgkaB2RlZmF1bHQKNgopb3BhLmtiLmN6L3ZhbGlkYXRpb24ubm90aWNlLmxpdmVuZXNzcHJvYmUSCRoHbWlzc2luZwo3CipvcGEua2IuY3ovdmFsaWRhdGlvbi5ub3RpY2UucmVhZGluZXNzcHJvYmUSCRoHbWlzc2luZwo3CipvcGEua2IuY3ovdmFsaWRhdGlvbi5ub3RpY2UucmVzb3VyY2VsaW1pdHMSCRoHbWlzc2luZwo5CixvcGEua2IuY3ovdmFsaWRhdGlvbi5ub3RpY2UucmVzb3VyY2VyZXF1ZXN0cxIJGgdtaXNzaW5nCjAKG29wZXJhdG9yLmlzdGlvLmlvL2NvbXBvbmVudBIRGg9JbmdyZXNzR2F0ZXdheXMKIQoRcG9kLXRlbXBsYXRlLWhhc2gSDBoKNTU3ZmM1N2M4ZAoSCgdyZWxlYXNlEgcaBWlzdGlvCjkKH3NlcnZpY2UuaXN0aW8uaW8vY2Fub25pY2FsLW5hbWUSFhoUaXN0aW8taW5ncmVzc2dhdGV3YXkKLwojc2VydmljZS5pc3Rpby5pby9jYW5vbmljYWwtcmV2aXNpb24SCBoGbGF0ZXN0CiIKF3NpZGVjYXIuaXN0aW8uaW8vaW5qZWN0EgcaBWZhbHNlChoKB01FU0hfSUQSDxoNY2x1c3Rlci5sb2NhbAovCgROQU1FEicaJWlzdGlvLWluZ3Jlc3NnYXRld2F5LTU1N2ZjNTdjOGQtYzJwdG0KGwoJTkFNRVNQQUNFEg4aDGlzdGlvLXN5c3RlbQpdCgVPV05FUhJUGlJrdWJlcm5ldGVzOi8vYXBpcy9hcHBzL3YxL25hbWVzcGFjZXMvaXN0aW8tc3lzdGVtL2RlcGxveW1lbnRzL2lzdGlvLWluZ3Jlc3NnYXRld2F5ChcKEVBMQVRGT1JNX01FVEFEQVRBEgIqAAonCg1XT1JLTE9BRF9OQU1FEhYaFGlzdGlvLWluZ3Jlc3NnYXRld2F5",
+    "X-Envoy-Peer-Metadata-Id": "router~192.168.117.55~istio-ingressgateway-557fc57c8d-c2ptm.istio-system~istio-system.svc.cluster.local",
+    "X-Forwarded": "Client=90.182.217.98:25142, App=194.50.226.107:443",
+    "X-Forwarded-For": "90.182.217.98, 10.0.11.6,10.85.90.223",
+    "X-Forwarded-Host": "gateway-test.kb.cz",
+    "X-Forwarded-Proto": "https",
+    "X-Forwarded-Server": "gateway-test.kb.cz",
+    "X-Real-Ip": "90.182.217.98",
+    "X-Request-Id": "d6a9bfc6-f60d-9b54-a101-ddd1472e0378"
+  },
+  "json": {
+    "data": [
+      {
+        "aid": "NDB",
+        "co": "{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/contexts\\/jsonschema\\/1-0-1\",\"data\":[{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/client_session\\/jsonschema\\/1-0-2\",\"data\":{\"sessionIndex\":3,\"storageMechanism\":\"LOCAL_STORAGE\",\"firstEventTimestamp\":\"2023-05-11T11:15:34.141Z\",\"firstEventId\":\"f047ac3c-acc0-4f23-aa1d-0387ed5c4656\",\"sessionId\":\"90bb091d-3f73-4c63-9053-d7e0aa75e87f\",\"eventIndex\":7,\"previousSessionId\":\"737b3088-310d-4774-8476-00ef588b5ba2\",\"userId\":\"8a063170-6b20-4b2d-8cd5-8313f84737aa\"}},{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/application\\/jsonschema\\/1-0-0\",\"data\":{\"build\":\"828\",\"version\":\"1.0.3\"}},{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/mobile_context\\/jsonschema\\/1-0-2\",\"data\":{\"carrier\":\"O2.CZ\",\"totalStorage\":242050117632,\"systemAvailableMemory\":4125233152,\"osVersion\":\"12\",\"batteryState\":\"unplugged\",\"availableStorage\":209431031808,\"osType\":\"android\",\"androidIdfa\":\"26da704f-eec8-45cd-91c8-84aad71497a1\",\"deviceModel\":\"M2012K11AG\",\"deviceManufacturer\":\"Xiaomi\",\"networkType\":\"wifi\",\"physicalMemory\":7983042560,\"batteryLevel\":86}},{\"schema\":\"cz.kb\\/screen_context\\/jsonschema\\/1-0-0\",\"data\":{\"techName\":\"ERR_DOCBOX_DOC_LOAD_ERROR\"}},{\"schema\":\"cz.kb\\/application_context\\/jsonschema\\/1-0-0\",\"data\":{\"channel\":\"NDB\",\"platform\":\"Android\",\"environment\":\"STAGE\",\"language\":\"cs\",\"skin\":\"auto\"}},{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/screen\\/jsonschema\\/1-0-0\",\"data\":{\"name\":\"ERR_DOCBOX_DOC_LOAD_ERROR\",\"id\":\"f0ac07ff-a816-40c1-8aee-0a436b2074c3\"}},{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/application_lifecycle\\/jsonschema\\/1-0-0\",\"data\":{\"isVisible\":true}}]}",
+        "dtm": "1683803917801",
+        "e": "ue",
+        "eid": "3765f7bb-7b74-4d6e-b7b8-304a4b58644e",
+        "lang": "čeština",
+        "p": "mob",
+        "res": "1080x2190",
+        "stm": "1683803917805",
+        "tna": "appTracker",
+        "tv": "andr-4.1.1",
+        "tz": "Europe/Prague",
+        "ue_pr": "{\"schema\":\"iglu:com.snowplowanalytics.snowplow\\/unstruct_event\\/jsonschema\\/1-0-0\",\"data\":{\"schema\":\"iglu:com.snowplowanalytics.mobile\\/screen_view\\/jsonschema\\/1-0-0\",\"data\":{\"name\":\"ERR_DOCBOX_DOC_LOAD_ERROR\",\"previousId\":\"e84e5a4a-947c-40e1-bd98-84df253445b5\",\"id\":\"f0ac07ff-a816-40c1-8aee-0a436b2074c3\",\"previousName\":\"DocumentList\"}}}"
+      }
+    ],
+    "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4"
+  },
+  "method": "POST",
+  "parsed_url": {
+    "host": "gateway-test.kb.cz",
+    "path": "/mobile",
+    "query": "",
+    "query_parsed": {},
+    "scheme": "https"
+  },
+  "remote_addr": "127.0.0.6:42543"
+}
