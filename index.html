@@ -62,10 +62,10 @@
         var event = {};
 
         for (var i = 0; i < obj.json.data.length; i++) {
-          console.log(obj.json.data[i].co);
+          console.log("co", obj.json.data[i].co);
           obj.json.data[i].co = parseEscapedJSONString(obj.json.data[i].co);
-          console.log(obj.json.data[i].co);
-          event = Object.assign(obj.json.data[i].co, event);
+          console.log("co", obj.json.data[i].co);
+          event = Object.assign(event, {contexts: obj.json.data[i].co});
           // for (var j = 0; j < obj.json.data[i].co.data.length; j++) {
           //   var context = {};
           //   switch (obj.json.data[i].co.data[j].schema) {
@@ -81,10 +81,10 @@
           //   }
           //   event = Object.assign(context, event);
           // }
-          console.log(obj.json.data[i].ue_pr);
+          console.log("ue_pr", obj.json.data[i].ue_pr);
           obj.json.data[i].ue_pr = parseEscapedJSONString(obj.json.data[i].ue_pr);
-          console.log(obj.json.data[i].ue_pr);
-          event = Object.assign(obj.json.data[i].ue_pr, event);
+          console.log("ue_pr", obj.json.data[i].ue_pr);
+          event = Object.assign(event, {event: obj.json.data[i].ue_pr});
           // for (var j = 0; j < obj.json.data[i].ue_pr.data.length; j++) {
           //   event = Object.assign(obj.json.data[i].ue_pr.data[j].data, event);
           // }
