@@ -62,7 +62,9 @@
         var event = {};
 
         for (var i = 0; i < obj.json.data.length; i++) {
+          console.log(obj.json.data[i].co);
           obj.json.data[i].co = parseEscapedJSONString(obj.json.data[i].co);
+          console.log(obj.json.data[i].co);
           event = Object.assign(obj.json.data[i].co, event);
           // for (var j = 0; j < obj.json.data[i].co.data.length; j++) {
           //   var context = {};
@@ -79,7 +81,9 @@
           //   }
           //   event = Object.assign(context, event);
           // }
+          console.log(obj.json.data[i].ue_pr);
           obj.json.data[i].ue_pr = parseEscapedJSONString(obj.json.data[i].ue_pr);
+          console.log(obj.json.data[i].ue_pr);
           event = Object.assign(obj.json.data[i].ue_pr, event);
           // for (var j = 0; j < obj.json.data[i].ue_pr.data.length; j++) {
           //   event = Object.assign(obj.json.data[i].ue_pr.data[j].data, event);
