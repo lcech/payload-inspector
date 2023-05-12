@@ -6,17 +6,16 @@ javascript:(function(){
   iframe.style.left = '0px';
   iframe.style.width = '100%';
   iframe.style.height = '100%';
+  iframe.style.background = 'White';
+  iframe.style.zIndex = 100;
 
   iframe.addEventListener("load", function() {
-    frame.contentWindow.postMessage(
+    iframe.contentWindow.postMessage(
       document.querySelector('.PayloadModal_payload__jZjnP').innerText,
       '*'
     );
   });
 
   document.body.appendChild(iframe);
-
-  
-
   return void(0);
 })();
