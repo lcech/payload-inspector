@@ -19,7 +19,9 @@ javascript:(function(){
 
   window.addEventListener('keydown', function(event) {
     if (event.isComposing || event.key === 'Escape') {
-      document.body.removeChild(iframe);
+      if (document.body.contains(iframe)) {
+        document.body.removeChild(iframe);
+      }
     }
   }, { once: true });
 
