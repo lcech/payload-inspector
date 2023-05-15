@@ -23,5 +23,9 @@ javascript:(function(){
     }
   }, { once: true });
 
+  window.addEventListener('message', function() {
+    document.body.removeChild(iframe);
+  }, { once: true });
+
   document.body.appendChild(iframe);
 })();

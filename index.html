@@ -116,16 +116,15 @@
       }
 
       window.addEventListener('message', function(event) {
-        console.log(event.data);
+        //console.log(event.data);
         payload.value = event.data;
         readJSONPayload();
       });
 
       window.addEventListener('keydown', function(event) {
         if (event.isComposing || event.key === 'Escape') {
-          var iframeElement = parent.document.getElementById('payload-inspector');
-          if (iframeElement) {
-            iframeElement.innerHTML = '';
+          if (window.parent) {
+            window.parent.postMessage('close', '*'); 
           }
         }
       }, { once: true });
